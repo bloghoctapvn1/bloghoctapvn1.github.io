@@ -25,6 +25,63 @@
 <meta name="twitter:description" content="Những kỹ thuật ghi chép giúp học nhanh và hệ thống hóa kiến thức.">
 <meta name="twitter:image" content="https://bloghoctapvn1.github.io/image/thumbnail.jpg">
 <link rel="stylesheet" href="style.css">
+<style>
+  .page-layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .page-sidebar {
+    flex: 0 0 240px;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 80px;
+  }
+
+  .page-sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .page-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-sidebar li + li {
+    margin-top: 8px;
+  }
+
+  .page-sidebar a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .page-sidebar a:hover {
+    text-decoration: underline;
+  }
+
+  .page-content {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    .page-layout {
+      flex-direction: column;
+    }
+    .page-sidebar {
+      position: static;
+      width: 100%;
+    }
+  }
+</style>
+
 <script defer src="main.js"></script>
 <script type="application/ld+json">
 {
@@ -57,7 +114,24 @@
 <div id="menu-container"></div>
 
 <main class="container">
-<article class="article">
+<div class="page-layout">
+
+  <!-- SIDEBAR BÊN TRÁI -->
+  <aside class="page-sidebar">
+    <h2>Nội dung bài viết</h2>
+    <ul>
+      <li><a href="#cornell">1. Phương pháp Cornell</a></li>
+      <li><a href="#mindmap">2. Sơ đồ Tư duy (Mind Map)</a></li>
+      <li><a href="#outlining">3. Phương pháp Phác thảo (Outlining)</a></li>
+      <li><a href="#sentence">4. Ghi chép theo Câu (Sentence Method)</a></li>
+      <li><a href="#charting">5. Phương pháp Ký hiệu (Charting)</a></li>
+      <li><a href="#ket-luan">Kết luận</a></li>
+    </ul>
+  </aside>
+
+  <!-- NỘI DUNG CHÍNH -->
+  <article class="article page-content">
+
 <header class="article-header">
 <h1>Kỹ năng ghi chép thông minh – Cách ghi chép giúp học nhanh, nhớ lâu và hiệu quả hơn</h1>
 </header>
@@ -74,7 +148,7 @@
 </section>
 
 <section>
-<h2>1. Phương pháp Cornell – Ghi chép có tổ chức</h2>
+<h2 id="cornell">1. Phương pháp Cornell – Ghi chép có tổ chức</h2>
 <p>Phương pháp Cornell là một trong những kỹ thuật ghi chép phổ biến và có cấu trúc nhất, giúp tối đa hóa khả năng ôn tập.</p>
 <h3>Cách thực hiện:</h3>
 <ul>
@@ -88,7 +162,7 @@
 </section>
 
 <section>
-<h2>2. Phương pháp Sơ đồ Tư duy (Mind Mapping) – Ghi chép trực quan</h2>
+<h2 id="mindmap">2. Phương pháp Sơ đồ Tư duy (Mind Mapping) – Ghi chép trực quan</h2>
 <p>Nếu bạn là người học trực quan và muốn thấy mối liên hệ giữa các ý tưởng, <strong>Sơ đồ Tư duy</strong> là cách ghi bài hiệu quả nhất.</p>
 <h3>Cách thực hiện:</h3>
 <ul>
@@ -101,7 +175,7 @@
 </section>
 
 <section>
-<h2>3. Phương pháp Phác thảo (Outlining) – Ghi chép theo cấu trúc logic</h2>
+<h2 id="outlining">3. Phương pháp Phác thảo (Outlining) – Ghi chép theo cấu trúc logic</h2>
 <p>Đây là phương pháp truyền thống nhưng vô cùng hiệu quả để ghi chép các bài giảng có cấu trúc rõ ràng, tuần tự.</p>
 <h3>Cách thực hiện:</h3>
 <ul>
@@ -115,7 +189,7 @@
 </section>
 
 <section>
-<h2>4. Phương pháp Ghi chép theo Câu (Sentence Method) – Tốc độ tối đa</h2>
+<h2 id="sentence">4. Phương pháp Ghi chép theo Câu (Sentence Method) – Tốc độ tối đa</h2>
 <p>Khi giảng viên nói quá nhanh và nội dung quá dày đặc, bạn cần một kỹ năng ghi chép tốc độ cao.</p>
 <h3>Cách thực hiện:</h3>
 <ul>
@@ -127,7 +201,7 @@
 </section>
 
 <section>
-<h2>5. Phương pháp Ký hiệu (Charting Method) – Ghi chép so sánh</h2>
+<h2 id="charting">5. Phương pháp Ký hiệu (Charting Method) – Ghi chép so sánh</h2>
 <p>Phương pháp này tuyệt vời khi bạn cần ghi chép về các chủ đề có nhiều điểm cần so sánh, như các triết gia, sự kiện lịch sử hoặc mô hình kinh tế.</p>
 <h3>Cách thực hiện:</h3>
 <ul>
@@ -140,7 +214,7 @@
 </section>
 
 <section>
-<h2>Kết luận</h2>
+<h2 id="ket-luan">Kết luận</h2>
 <p>Không có một cách ghi bài hiệu quả nào là hoàn hảo cho tất cả mọi người và mọi môn học. Việc nâng cao <strong>kinh nghiệm học tập</strong> của bạn đòi hỏi sự linh hoạt.</p>
 <p>Hãy thử nghiệm cả 5 phương pháp trên, kết hợp chúng lại và tìm ra phong cách ghi chép "lai" phù hợp nhất với bản thân. Sự linh hoạt này chính là chìa khóa của một kỹ năng ghi chép thông minh thực thụ.</p>
 
@@ -153,7 +227,9 @@
 </ul>
 </section>
 </article>
+</div> <!-- hết .page-layout -->
 </main>
+
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> Blog Kinh nghiệm học tập</p>
@@ -192,6 +268,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
 
 
 
