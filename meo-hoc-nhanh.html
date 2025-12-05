@@ -26,6 +26,37 @@
 <meta name="twitter:description" content="5 mẹo học nhanh – nhớ lâu ai cũng áp dụng được.">
 <meta name="twitter:image" content="https://bloghoctapvn1.github.io/image/thumbnail.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+  /* Đặt article + sidebar nằm cạnh nhau */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;          /* khoảng cách giữa bài viết và sidebar */
+}
+
+/* Bài viết chiếm rộng hơn, nhưng đứng bên PHẢI */
+.article {
+  flex: 3;
+  order: 2;           /* HIỂN THỊ SAU (bên phải) */
+}
+
+/* Sidebar (mục lục, đăng ký…) đứng bên TRÁI */
+.sidebar {
+  flex: 1;
+  order: 1;           /* HIỂN THỊ TRƯỚC (bên trái) */
+}
+</style>
+/* Trên mobile thì xếp dọc lại cho dễ đọc */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .article,
+  .sidebar {
+    order: 0;         /* trở lại thứ tự bình thường khi xếp dọc */
+  }
+}
+
   <script defer src="main.js"></script>
   <link rel="canonical" href="https://bloghoctapvn1.github.io/meo-hoc-nhanh.html">
   <script type="application/ld+json">
@@ -165,6 +196,18 @@
 
     <aside class="sidebar">
       <div class="box" style="margin-top:14px;">
+    <h4>Mục lục</h4>
+    <ul style="list-style:none;padding-left:0;line-height:1.6;">
+      <li><a href="#muc-1">1. Xác định rõ mục tiêu học tập</a></li>
+      <li><a href="#muc-2">2. Áp dụng phương pháp học chủ động</a></li>
+      <li><a href="#muc-3">3. Ghi chép thông minh và khoa học</a></li>
+      <li><a href="#muc-4">4. Kỹ thuật ghi nhớ hiệu quả</a></li>
+      <li><a href="#muc-5">5. Tận dụng công nghệ học tập</a></li>
+      <li><a href="#muc-6">6. Duy trì thói quen học tập</a></li>
+      <li><a href="#ket-luan">Kết luận</a></li>
+    </ul>
+  </div>
+      <div class="box" style="margin-top:14px;">
         <h4>Đăng ký nhận mẹo</h4>
         <form action="#" method="post" onsubmit="alert('Form mẫu — chưa kết nối.'); return false;">
           <input type="email" name="email" placeholder="Email của bạn" required style="width:100%;padding:8px;margin-bottom:8px;">
@@ -205,6 +248,7 @@
   <script src="JS"></script>
 </body>
 </html>
+
 
 
 
