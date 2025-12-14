@@ -114,22 +114,19 @@
 
   <script src="js/menu-active.js"></script>
 
-  <script>
-    fetch("menu.html")
-      .then(r => r.text())
-      .then(d => {
-        document.getElementById("menu-container").innerHTML = d;
-        if (window.setActiveMenuLink) window.setActiveMenuLink();
-      });
+<script>
+  fetch("menu.html")
+    .then(r => r.text())
+    .then(d => {
+      document.getElementById("menu-container").innerHTML = d;
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+      // ✅ báo menu đã load xong để JS active chạy
+      document.dispatchEvent(new Event("menu:loaded"));
+    });
+</script>
 
-    function toggleMenu() {
-      const nav = document.getElementById("nav-main");
-      nav.style.display = (nav.style.display === "block") ? "none" : "block";
-    }
-  </script>
 </body>
 </html>
+
 
 
