@@ -4,24 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- ✅ Title ngắn + rõ keyword -->
   <title>Cách ôn thi hiệu quả: 7 bước đạt điểm cao</title>
 
   <meta name="description" content="Hướng dẫn cách ôn thi hiệu quả với 7 bước: lập kế hoạch, học trọng tâm, luyện đề, quản lý thời gian, giữ tâm lý ổn định và mẹo làm bài để đạt điểm cao.">
   <meta name="keywords" content="cách ôn thi hiệu quả, cách ôn thi, kinh nghiệm học tập, mẹo thi cử, đạt điểm cao">
   <meta name="robots" content="index, follow">
 
-  <!-- ✅ Canonical đúng domain của bạn -->
   <link rel="canonical" href="https://bloghoctapvn1.github.io/cach-on-thi.html">
 
-  <!-- Open Graph (không trùng lặp) -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Cách ôn thi hiệu quả: 7 bước đạt điểm cao">
   <meta property="og:description" content="Kinh nghiệm ôn thi khoa học: lập kế hoạch, luyện đề, giữ tâm lý ổn định và mẹo làm bài giúp tăng điểm.">
   <meta property="og:image" content="https://bloghoctapvn1.github.io/image/thumbnail.jpg">
   <meta property="og:url" content="https://bloghoctapvn1.github.io/cach-on-thi.html">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cách ôn thi hiệu quả: 7 bước đạt điểm cao">
   <meta name="twitter:description" content="Checklist ôn thi + mẹo phòng thi giúp bạn tự tin và tăng điểm.">
@@ -30,7 +26,9 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="main.js"></script>
 
-  <!-- ✅ Schema Article (sửa link ảnh publisher, bỏ example.com) -->
+  <!-- ✅ Load menu-active sớm (quan trọng để có hàm) -->
+  <script defer src="js/menu-active.js"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,7 +52,6 @@
   }
   </script>
 
-  <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="96x96" href="Favicon/favicon-96x96.png">
   <link rel="shortcut icon" href="Favicon/favicon.ico" type="image/x-icon">
@@ -83,7 +80,6 @@
 </head>
 
 <body>
-  <!-- Menu được tải tự động -->
   <div id="menu-container"></div>
 
   <main class="container">
@@ -96,7 +92,6 @@
         </p>
       </header>
 
-      <!-- MỤC LỤC -->
       <nav class="toc" aria-label="Mục lục">
         <h3>Mục lục bài viết</h3>
         <ol>
@@ -110,7 +105,6 @@
         </ol>
       </nav>
 
-      <!-- INTRO -->
       <section class="intro">
         <div class="callout">
           <strong>Tóm tắt nhanh:</strong> Muốn đạt điểm cao, bạn cần 3 thứ: <strong>kế hoạch rõ</strong> + <strong>luyện đề đúng cách</strong> + <strong>tâm lý vững</strong>.
@@ -203,9 +197,7 @@
 
       <section id="muc-6">
         <h2>6) Mẹo làm bài trong phòng thi</h2>
-        <p>
-          Trong phòng thi, kỹ thuật làm bài có thể giúp bạn “vớt” thêm điểm.
-        </p>
+        <p>Trong phòng thi, kỹ thuật làm bài có thể giúp bạn “vớt” thêm điểm.</p>
         <div class="checklist">
           <strong>Chiến lược làm bài:</strong>
           <ul>
@@ -227,9 +219,7 @@
             <li>✅ Chuẩn bị dụng cụ + đến sớm để giảm căng thẳng</li>
           </ul>
         </div>
-        <p>
-          Bạn muốn học nhanh hơn nữa? Xem thêm: <a href="meo-hoc-nhanh.html">Mẹo học nhanh nhớ lâu</a>.
-        </p>
+        <p>Bạn muốn học nhanh hơn nữa? Xem thêm: <a href="meo-hoc-nhanh.html">Mẹo học nhanh nhớ lâu</a>.</p>
       </section>
 
       <section class="related-posts">
@@ -240,7 +230,6 @@
           <li><a href="quan-ly-thoi-gian-hoc.html">Quản lý thời gian học tập hiệu quả</a></li>
         </ul>
       </section>
-
     </article>
   </main>
 
@@ -257,14 +246,14 @@
       if (y) y.textContent = new Date().getFullYear();
     })();
 
-    // Hàm mở/đóng menu mobile
+    // Toggle menu mobile
     function toggleMenu() {
       const nav = document.getElementById("nav-main");
       if (!nav) return;
       nav.style.display = (nav.style.display === "block") ? "none" : "block";
     }
 
-    // Load menu + gọi active link sau khi menu load
+    // Load menu rồi mới set active
     fetch("menu.html")
       .then(r => r.text())
       .then(d => {
@@ -272,7 +261,5 @@
         if (window.setActiveMenuLink) window.setActiveMenuLink();
       });
   </script>
-
-  <script src="js/menu-active.js"></script>
 </body>
 </html>
