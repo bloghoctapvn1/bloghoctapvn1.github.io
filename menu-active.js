@@ -4,26 +4,23 @@ function setActiveMenuLink() {
 
   const links = nav.querySelectorAll("a");
 
-  let currentPath = window.location.pathname;
-  if (currentPath.endsWith("/")) currentPath += "index.html";
+  // Lấy tên file hiện tại
+  let currentFile = window.location.pathname.split("/").pop();
+  if (!currentFile) currentFile = "index.html";
 
   links.forEach(a => {
     a.classList.remove("active");
 
-    const href = a.getAttribute("href");
+    const href = (a.getAttribute("href") || "").trim();
     if (!href) return;
 
-    const targetPath = new URL(href, window.location.href).pathname;
+    // So sánh theo tên file (cách an toàn nhất cho GitHub Pages + thư mục con)
+    const hrefFile = href.split("/").pop();
 
-    if (targetPath === currentPath) {
+    if (hrefFile === currentFile) {
       a.classList.add("active");
     }
   });
 }
 
 window.setActiveMenuLink = setActiveMenuLink;
-
-// Tự chạy khi menu vừa được fetch chèn vào
-new MutationObserver(() => {
-  if (document.getElementById("nav-main")) setActiveMenuLink();
-}).observe(document.body, { childList: true, subtree: true });
