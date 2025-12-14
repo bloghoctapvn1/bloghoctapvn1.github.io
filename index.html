@@ -120,18 +120,26 @@
     <p>📞 Liên hệ: <a href="tel:0901234567">0901 234 567</a></p>
   </footer>
 
-  <script>
-    fetch("menu.html")
-      .then(r => r.text())
-      .then(d => { document.getElementById("menu-container").innerHTML = d; });
+ <script>
+  fetch("menu.html")
+    .then(r => r.text())
+    .then(d => {
+      document.getElementById("menu-container").innerHTML = d;
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+      if (window.setActiveMenuLink) {
+        window.setActiveMenuLink();
+      }
+    });
 
-    function toggleMenu() {
-      const nav = document.getElementById("nav-main");
-      nav.style.display = (nav.style.display === "block") ? "none" : "block";
-    }
-  </script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const nav = document.getElementById("nav-main");
+    nav.style.display = (nav.style.display === "block") ? "none" : "block";
+  }
+</script>
+
 <script src="js/menu-active.js"></script>
 </body>
 </html>
+
