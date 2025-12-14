@@ -195,13 +195,9 @@ header.header #nav-main a:hover{
 }
 
 header.header #nav-main a.active{
-  color:#1E90FF !important;
-  border-bottom:2px solid #1E90FF;
+  color:#1581BF !important;
+  border-bottom:2px solid #1581BF;
   padding-bottom:2px;
 }
-header.header #nav-main a.active{
-  color:#ff0000 !important;
-  background:#fff59d !important;
-  border-bottom:3px solid #ff0000 !important;
-}
+
 
