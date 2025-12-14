@@ -1,26 +1,37 @@
 function setActiveMenuLink() {
-  const links = document.querySelectorAll("#nav-main a");
+  const nav = document.getElementById("nav-main");
+  if (!nav) return;
 
-  // Lấy tên file hiện tại (index.html, meo-hoc-nhanh.html, cach-on-thi.html…)
-  let currentPage = window.location.pathname.split("/").pop();
-  if (!currentPage) currentPage = "index.html";
+  const links = nav.querySelectorAll("a");
 
-  links.forEach(link => {
-    const href = link.getAttribute("href");
+  // Lấy đường dẫn trang hiện tại (path) và chuẩn hóa
+  let currentPath = window.location.pathname;
+  if (currentPath.endsWith("/")) currentPath += "index.html";
+
+  links.forEach(a => {
+    a.classList.remove("active");
+
+    const href = a.getAttribute("href");
     if (!href) return;
 
-    // Lấy tên file của link
-    const linkPage = href.split("/").pop();
+    // Biến href tương đối -> URL tuyệt đối để so sánh chuẩn
+    const targetPath = new URL(href, window.location.href).pathname;
 
-    // Reset trước (tránh bị active 2 cái)
-    link.classList.remove("active");
-
-    // Match chính xác
-    if (linkPage === currentPage) {
-      link.classList.add("active");
+    // So sánh theo path (bỏ qua query/hash)
+    if (targetPath === currentPath) {
+      a.classList.add("active");
     }
   });
 }
 
-// Cho HTML gọi sau khi fetch menu.html
+// Expose để gọi sau khi fetch menu
 window.setActiveMenuLink = setActiveMenuLink;
+
+// Tự chạy lại khi menu vừa được inject vào DOM (chắc chắn không miss)
+const observer = new MutationObserver(() => {
+  if (document.getElementById("nav-main")) {
+    setActiveMenuLink();
+    observer.disconnect();
+  }
+});
+observer.observe(document.documentElement, { childList: true, subtree: true });
