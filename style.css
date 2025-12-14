@@ -21,26 +21,12 @@ h1{font-size:1.6rem;margin:0 0 12px}
 h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
 .readmore a{font-weight:600}
 .related{margin-top:18px;font-style:italic}
+
 @media(max-width:900px){
   .main{grid-template-columns:1fr}
   .nav ul{flex-wrap:wrap}
   .nav-toggle{display:inline-block}
   #nav-main{display:none}
-}
-/* ===== Menu ===== */
-.nav li a {
-  text-decoration: none;
-  color: #333333; /* màu bình thường */
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.nav li a.active {
-  color:  #1E90FF !important; 
-}
-
-.nav li a:hover {
-  color: #3498db; /* khi rê chuột */
 }
 
 /* ===== Dark mode ===== */
@@ -55,11 +41,6 @@ h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
     color: #ffffff;
   }
 
-  
-  .nav li a.active {
-    color: #1E90FF  !important;
-  }
-
   /* Hover menu trong dark mode */
   .nav li a:hover {
     color: #00FFFF;
@@ -68,20 +49,6 @@ h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
   /* Nội dung trang */
   .content, .article, .card, .sidebar {
     color: #ffffff; /* màu chữ nội dung trong dark mode */
-  }
-}
-/* Ẩn menu mặc định trên mobile */
-.nav {
-  display: none;
-}
-
-/* Khi màn hình to hơn 768px thì luôn hiện menu */
-@media (min-width: 768px) {
-  .nav {
-    display: block !important;
-  }
-  .nav-toggle {
-    display: none;
   }
 }
 
@@ -94,6 +61,7 @@ h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
   border-radius: 6px;
   font-weight: bold;
 }
+
 /* ===== HERO CĂN ẢNH GIỮA TOÀN MÀN ===== */
 .hero {
   width: 100%;
@@ -115,6 +83,7 @@ h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
   height: auto;
   border-radius: 10px;
 }
+
 .article-hero {
   text-align: center;
   margin: 30px auto;
@@ -135,11 +104,13 @@ h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
   font-size: 14px;
   font-style: italic;
 }
+
 @media (max-width: 768px) {
   .article-hero img {
     max-width: 100%;
   }
 }
+
 /* ----- Footer chung ----- */
 .footer {
   text-align: center;
@@ -159,6 +130,7 @@ h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
 .footer a:hover {
   text-decoration: underline;
 }
+
 /* ========== MENU (HEADER) ========== */
 header.header {
   background-color: #ABE7B2; /* 💚 xanh pastel */
@@ -166,21 +138,6 @@ header.header {
   padding: 10px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   font-weight: 700; /* in đậm */
-}
-
-header.header a {
-  color: #000; /* chữ đen */
-  text-decoration: none;
-  font-weight: 700; /* in đậm */
-  padding: 10px 15px;
-  display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-header.header a:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: #065f46; /* xanh đậm hơn khi hover */
 }
 
 /* ========== FOOTER ========== */
@@ -205,31 +162,40 @@ footer.footer a:hover {
   text-decoration: underline;
   color: #064e3b;
 }
-/* ===== Menu active (trang đang mở) ===== */
-.nav li a.active{
-  color:#1E90FF !important;
-  border-bottom:2px solid #1E90FF;
-  padding-bottom:2px;
+
+/* =========================================================
+   ✅ THAY THẾ: ẨN/HIỆN MENU ĐÚNG THEO #nav-main (KHÔNG DÙNG .nav)
+   ========================================================= */
+@media (max-width: 767px){
+  #nav-main{display:none;}
+  .nav-toggle{display:inline-block;}
 }
-/* Hover */
+
+@media (min-width: 768px){
+  #nav-main{display:block !important;}
+  .nav-toggle{display:none;}
+}
+
+/* =========================================================
+   ✅ THAY THẾ: HOVER + ACTIVE (GIỮ 1 LẦN DUY NHẤT)
+   ========================================================= */
+header.header #nav-main a{
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+  padding:10px 15px;
+  display:inline-block;
+  transition: color .3s, background-color .3s;
+}
+
 header.header #nav-main a:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
   color:#3498db !important;
 }
 
-/* Active (trang hiện tại) */
 header.header #nav-main a.active{
   color:#1E90FF !important;
   border-bottom:2px solid #1E90FF;
   padding-bottom:2px;
 }
-
-
-
-
-
-
-
-
-
-
-
