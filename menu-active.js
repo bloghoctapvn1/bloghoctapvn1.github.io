@@ -1,23 +1,22 @@
 function setActiveMenuLink() {
-  const links = document.querySelectorAll(".nav ul li a");
+  const links = document.querySelectorAll("#nav-main a");
 
-  // lấy tên trang hiện tại
-  let currentPage = window.location.pathname.replace(/\/$/, "").split("/").pop();
+  // Lấy tên file hiện tại (index.html, cach-on-thi.html...)
+  let currentPage = window.location.pathname.split("/").pop();
   if (!currentPage) currentPage = "index.html";
 
-  links.forEach(a => {
-    const href = a.getAttribute("href");
+  links.forEach(link => {
+    const href = link.getAttribute("href");
     if (!href) return;
 
-    // bỏ query/hash, lấy tên file cuối
-    const clean = href.split("#")[0].split("?")[0];
-    const targetPage = clean.replace(/\/$/, "").split("/").pop();
+    // Chỉ lấy tên file của link
+    const linkPage = href.split("/").pop();
 
-    if (targetPage === currentPage) {
-      a.classList.add("active");
+    if (linkPage === currentPage) {
+      link.classList.add("active");
     }
   });
 }
 
-// để HTML gọi sau khi fetch menu xong
+// Cho HTML gọi sau khi fetch menu
 window.setActiveMenuLink = setActiveMenuLink;
