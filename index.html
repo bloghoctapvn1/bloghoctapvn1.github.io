@@ -117,16 +117,24 @@
 <script>
   fetch("menu.html")
     .then(r => r.text())
-    .then(d => {
-      document.getElementById("menu-container").innerHTML = d;
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
-      // ✅ báo menu đã load xong để JS active chạy
+      // ✅ báo cho menu-active.js biết menu đã load xong
       document.dispatchEvent(new Event("menu:loaded"));
     });
+
+  function toggleMenu() {
+    const nav = document.getElementById("nav-main");
+    if (!nav) return;
+    nav.style.display = (nav.style.display === "block") ? "none" : "block";
+  }
 </script>
+
 
 </body>
 </html>
+
 
 
 
