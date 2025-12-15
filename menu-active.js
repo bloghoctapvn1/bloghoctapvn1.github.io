@@ -1,33 +1,19 @@
-(function () {
-  function fileOf(path) {
-    path = (path || "").split("?")[0].split("#")[0];
-    if (path.endsWith("/")) path += "index.html";
-    return (path.split("/").pop() || "index.html").trim();
-  }
+<script>
+  fetch("menu.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
-  function setActiveMenuLink() {
+      // CÁCH 1: gọi trực tiếp (ổn nhất)
+      if (window.setActiveMenuLink) window.setActiveMenuLink();
+
+      // (hoặc) CÁCH 2: bắn event nếu menu-active.js có lắng nghe
+      document.dispatchEvent(new Event("menu:loaded"));
+    });
+
+  function toggleMenu() {
     const nav = document.getElementById("nav-main");
     if (!nav) return;
-
-    const currentFile = fileOf(window.location.pathname);
-
-    nav.querySelectorAll("a[href]").forEach(a => {
-      a.classList.remove("active");
-
-      const href = (a.getAttribute("href") || "").trim();
-      if (!href || href.startsWith("#") || href.startsWith("http")) return;
-
-      const hrefFile = fileOf(href);
-
-      if (hrefFile === currentFile) a.classList.add("active");
-    });
+    nav.style.display = (nav.style.display === "block") ? "none" : "block";
   }
-
-  window.setActiveMenuLink = setActiveMenuLink;
-
-  // chạy khi DOM sẵn sàng
-  document.addEventListener("DOMContentLoaded", setActiveMenuLink);
-
-  // chạy khi menu được fetch xong
-  document.addEventListener("menu:loaded", setActiveMenuLink);
-})();
+</script>
