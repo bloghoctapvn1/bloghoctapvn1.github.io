@@ -239,18 +239,26 @@
     <p>📞 Liên hệ: <a href="tel:0901234567">0901 234 567</a></p>
   </footer>
 
- <script src="js/menu-active.js"></script>
+<script src="menu-active.js"></script>
 
 <script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav-main");
+    if (!nav) return;
+    nav.style.display = (nav.style.display === "block") ? "none" : "block";
+  }
+
   fetch("menu.html")
     .then(r => r.text())
-    .then(d => {
-      document.getElementById("menu-container").innerHTML = d;
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
-      // ✅ báo menu đã load xong để JS active chạy
+      // báo menu đã load xong để JS set active
       document.dispatchEvent(new Event("menu:loaded"));
     });
 </script>
+
 </body>
 </html>
+
 
