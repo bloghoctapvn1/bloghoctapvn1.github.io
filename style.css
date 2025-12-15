@@ -199,5 +199,11 @@ header.header #nav-main a.active{
   border-bottom:2px solid #1581BF;
   padding-bottom:2px;
 }
+header.header #nav-main a.active{
+  color:#1581BF !important;
+  border-bottom:2px solid #1581BF;
+}
+
+
 
 
