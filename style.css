@@ -1,183 +1,165 @@
-:root{--bg:#ffffff;--text:#0b1220;--muted:#5b6470;--accent:#0f62fe;--container:1100px}
+:root{
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#5b6470;
+  --accent:#0f62fe;
+  --container:1100px;
+}
+
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;padding:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:var(--text); line-height:1.6}
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* Layout */
 .wrap{max-width:var(--container);margin:0 auto;padding:12px 20px}
-.header{background:#fff;border-bottom:1px solid #eef3f8}
-.header .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px}
-.brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.05rem}
-.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px}
-.nav a{text-decoration:none;color:var(--text);font-weight:600}
-.nav-toggle{display:none;background:none;border:1px solid #e6eef8;padding:6px 10px;border-radius:6px}
-.hero{background:#f8fbff;padding:24px;border-radius:8px;margin:18px 0;border:1px solid #e6f3ff}
 .container{max-width:var(--container);margin:0 auto;padding:20px}
 .main{display:grid;grid-template-columns:1fr 320px;gap:24px}
 .content-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.card{background:#fff;padding:16px;border-radius:8px;border:1px solid #eef6ff}
-.article{background:#fff;padding:20px;border-radius:8px;border:1px solid #eef6ff}
-.sidebar{background:#fff;padding:16px;border-radius:8px;border:1px solid #eef6ff}
-.footer{border-top:1px solid #eef3fb;padding:18px;margin-top:30px;background:#fbfdff;text-align:center;color:var(--muted)}
+
+/* Header / Menu */
+.header{
+  background:#fff;
+  border-bottom:1px solid #eef3f8;
+}
+.header .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px;
+}
+
+.brand{
+  font-weight:700;
+  color:var(--accent);
+  text-decoration:none;
+  font-size:1.05rem;
+}
+
+/* nav */
+.nav ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:14px;
+}
+
+.nav-toggle{
+  display:none;
+  background:#0b1220;
+  color:#fff;
+  padding:8px 12px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* Hero */
+.hero{
+  background:#f8fbff;
+  padding:24px;
+  border-radius:8px;
+  margin:18px 0;
+  border:1px solid #e6f3ff;
+}
+
+/* Cards / Content */
+.card{
+  background:#fff;
+  padding:16px;
+  border-radius:8px;
+  border:1px solid #eef6ff;
+}
+.article{
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #eef6ff;
+}
+.sidebar{
+  background:#fff;
+  padding:16px;
+  border-radius:8px;
+  border:1px solid #eef6ff;
+}
+
+/* Typography */
 a{color:var(--accent)}
 h1{font-size:1.6rem;margin:0 0 12px}
 h2{color:var(--accent);font-size:1.05rem;margin-top:14px}
 .readmore a{font-weight:600}
 .related{margin-top:18px;font-style:italic}
 
-@media(max-width:900px){
-  .main{grid-template-columns:1fr}
-  .nav ul{flex-wrap:wrap}
-  .nav-toggle{display:inline-block}
-  #nav-main{display:none}
+/* Article hero image */
+.article-hero{ text-align:center; margin:30px auto; }
+.article-hero img{
+  display:block;
+  margin:0 auto;
+  max-width:90%;
+  height:auto;
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+.article-hero figcaption{
+  color:#6b7280;
+  margin-top:8px;
+  font-size:14px;
+  font-style:italic;
+}
+@media (max-width:768px){
+  .article-hero img{max-width:100%}
 }
 
-/* ===== Dark mode ===== */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #0b1220;
-    color: #ffffff; /* màu chữ nội dung */
-  }
-
-  /* Menu link bình thường trong dark mode */
-  .nav li a {
-    color: #ffffff;
-  }
-
-  /* Hover menu trong dark mode */
-  .nav li a:hover {
-    color: #00FFFF;
-  }
-
-  /* Nội dung trang */
-  .content, .article, .card, .sidebar {
-    color: #ffffff; /* màu chữ nội dung trong dark mode */
-  }
+/* Footer */
+.footer{
+  border-top:1px solid #eef3fb;
+  padding:18px;
+  margin-top:30px;
+  background:#fbfdff;
+  text-align:center;
+  color:var(--muted);
 }
 
-/* Tùy chỉnh nút Menu */
-.nav-toggle {
-  background: #0b1220;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
+/* ===== Pastel header & footer style ===== */
+header.header{
+  background-color:#ABE7B2; /* xanh pastel */
+  color:#000;
+  padding:10px 0;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  font-weight:700;
 }
 
-/* ===== HERO CĂN ẢNH GIỮA TOÀN MÀN ===== */
-.hero {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  padding: 40px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: transparent; /* hoặc thêm màu nếu bạn muốn */
+footer.footer{
+  background-color:#ABE7B2;
+  color:#000;
+  text-align:center;
+  padding:20px 10px;
+  margin-top:40px;
+  border-top:3px solid #93d49c;
+  font-size:15px;
+  font-weight:700;
 }
-
-.hero img,
-.hero-image {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+footer.footer a{
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
 }
-
-.article-hero {
-  text-align: center;
-  margin: 30px auto;
-}
-
-.article-hero img {
-  display: block;
-  margin: 0 auto;
-  max-width: 90%; /* Giúp ảnh co nhỏ hợp lý trên mobile */
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.article-hero figcaption {
-  color: #6b7280;
-  margin-top: 8px;
-  font-size: 14px;
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .article-hero img {
-    max-width: 100%;
-  }
-}
-
-/* ----- Footer chung ----- */
-.footer {
-  text-align: center;
-  background-color: #f3f4f6;
-  padding: 20px 10px;
-  font-size: 15px;
-  color: #374151;
-  margin-top: 40px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.footer a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ========== MENU (HEADER) ========== */
-header.header {
-  background-color: #ABE7B2; /* 💚 xanh pastel */
-  color: #000; /* chữ đen */
-  padding: 10px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  font-weight: 700; /* in đậm */
-}
-
-/* ========== FOOTER ========== */
-footer.footer {
-  background-color: #ABE7B2; /* 💚 cùng màu menu */
-  color: #000; /* chữ đen */
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
-  border-top: 3px solid #93d49c;
-  font-size: 15px;
-  font-weight: 700; /* in đậm */
-}
-
-footer.footer a {
-  color: #000; /* chữ đen */
-  font-weight: 700; /* in đậm */
-  text-decoration: none;
-}
-
-footer.footer a:hover {
-  text-decoration: underline;
-  color: #064e3b;
+footer.footer a:hover{
+  text-decoration:underline;
+  color:#064e3b;
 }
 
 /* =========================================================
-   ✅ THAY THẾ: ẨN/HIỆN MENU ĐÚNG THEO #nav-main (KHÔNG DÙNG .nav)
-   ========================================================= */
-@media (max-width: 767px){
-  #nav-main{display:none;}
-  .nav-toggle{display:inline-block;}
-}
-
-@media (min-width: 768px){
-  #nav-main{display:block !important;}
-  .nav-toggle{display:none;}
-}
-
-/* =========================================================
-   ✅ THAY THẾ: HOVER + ACTIVE (GIỮ 1 LẦN DUY NHẤT)
+   ✅ MENU LINKS (HOVER + ACTIVE) - CHẮC CHẮN ĂN MÀU
    ========================================================= */
 header.header #nav-main a{
   color:#000;
@@ -185,25 +167,51 @@ header.header #nav-main a{
   font-weight:700;
   padding:10px 15px;
   display:inline-block;
-  transition: color .3s, background-color .3s;
+  transition:color .3s, background-color .3s;
 }
 
 header.header #nav-main a:hover{
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color:#3498db !important;
+  background-color:rgba(255,255,255,0.4);
+  border-radius:6px;
+  color:#3498db;
 }
 
+/* Active (trang đang mở) */
 header.header #nav-main a.active{
   color:#1581BF !important;
-  border-bottom:2px solid #1581BF;
-  padding-bottom:2px;
-}
-header.header #nav-main a.active{
-  color:#1581BF !important;
-  border-bottom:2px solid #1581BF;
+  border-bottom:3px solid #1581BF;
 }
 
+/* =========================================================
+   ✅ RESPONSIVE MENU: ẨN/HIỆN THEO #nav-main
+   ========================================================= */
+@media (max-width:767px){
+  .main{grid-template-columns:1fr}
+  .nav ul{flex-wrap:wrap}
+  #nav-main{display:none;}
+  .nav-toggle{display:inline-block;}
+}
+@media (min-width:768px){
+  #nav-main{display:block !important;}
+  .nav-toggle{display:none;}
+}
 
+/* ===== Dark mode ===== */
+@media (prefers-color-scheme: dark){
+  body{background:#0b1220;color:#ffffff}
+  .header{background:#0b1220;border-bottom:1px solid rgba(255,255,255,0.12)}
+  .card,.article,.sidebar{background:#0b1220;border:1px solid rgba(255,255,255,0.12);color:#fff}
+  .footer{background:#0b1220;color:#cbd5e1;border-top:1px solid rgba(255,255,255,0.12)}
+  header.header{background:#0b1220;color:#fff}
+  footer.footer{background:#0b1220;color:#fff;border-top:3px solid rgba(255,255,255,0.12)}
 
-
+  header.header #nav-main a{color:#fff}
+  header.header #nav-main a:hover{
+    background-color:rgba(255,255,255,0.12);
+    color:#00FFFF;
+  }
+  header.header #nav-main a.active{
+    color:#1E90FF !important;
+    border-bottom:3px solid #1E90FF;
+  }
+}
