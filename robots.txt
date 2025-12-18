@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bloghoctapvn1.github.io/Kinhnghiemhoctap/sitemap.xml
+Sitemap: https://bloghoctapvn1.github.io/sitemap.xml
