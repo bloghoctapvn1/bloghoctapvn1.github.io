@@ -1,4 +1,4 @@
-//menu-active.js
+//js/menu-active.js
 (function () {
   function cleanPath(p) {
     return (p || "").split("?")[0].split("#")[0];
